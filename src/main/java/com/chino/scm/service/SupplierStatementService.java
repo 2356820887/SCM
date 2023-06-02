@@ -7,4 +7,6 @@ public interface SupplierStatementService extends IService<SupplierStatement> {
 
     SupplierStatement findAll();
 
+    SupplierStatement findByYear(int year);
+
 }

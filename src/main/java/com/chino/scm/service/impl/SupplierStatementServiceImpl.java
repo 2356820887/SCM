@@ -16,4 +16,9 @@ public class SupplierStatementServiceImpl extends ServiceImpl<SupplierStatementM
     public SupplierStatement findAll() {
         return supplierStatementMapper.selectAll();
     }
+
+    @Override
+    public SupplierStatement findByYear(int year) {
+        return supplierStatementMapper.selectByYear(year);
+    }
 }
