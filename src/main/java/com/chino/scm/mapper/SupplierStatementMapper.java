@@ -9,7 +9,10 @@ import org.apache.ibatis.annotations.Select;
 public interface SupplierStatementMapper extends BaseMapper<SupplierStatement> {
     @Select("select * from supplier_statement")
     SupplierStatement selectAll();
-
     @Select("select * from supplier_statement where year = #{year}")
     SupplierStatement selectByYear(int year);
+    @Select("select * from supplier_statement where quarter = #{quarter}")
+    SupplierStatement selectByQuarter(int year);
+    @Select("select * from supplier_statement where month = #{month}")
+    SupplierStatement selectByMonth(int month);
 }

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chino.scm.mapper.SupplierStatementMapper">
-  <resultMap id="BaseResultMap" type="com.chino.scm.pojo.SupplierStatement">
+<mapper namespace="com.chino.scm.mapper.CustomerStatementMapper">
+  <resultMap id="BaseResultMap" type="com.chino.scm.pojo.CustomerStatement">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="year" jdbcType="VARCHAR" property="year" />
     <result column="quarter" jdbcType="VARCHAR" property="quarter" />
     <result column="month" jdbcType="VARCHAR" property="month" />
-    <result column="supplier_name" jdbcType="VARCHAR" property="supplierName" />
-    <result column="payable_amount" jdbcType="DOUBLE" property="payableAmount" />
+    <result column="customer_name" jdbcType="VARCHAR" property="customerName" />
+    <result column="contract_amount" jdbcType="DOUBLE" property="contractAmount" />
   </resultMap>
   <sql id="Base_Column_List">
-      id, year ,quarter, `month`, supplier_name, payable_amount
+      id, year ,quarter, `month`, customer_name, contract_amount
   </sql>
 </mapper>

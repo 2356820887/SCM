@@ -5,8 +5,8 @@ import com.auth0.jwt.JWTCreator;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.chino.scm.pojo.Users;
-import org.springframework.util.StringUtils;
+import com.chino.scm.pojo.User;
+import org.springframework.util.ObjectUtils;
 
 import java.util.Calendar;
 
@@ -25,7 +25,7 @@ public class JWTUtils {
      * @param u user
      * @return token
      */
-    public static String getToken(Users u) {
+    public static String getToken(User u) {
         Calendar instance = Calendar.getInstance();
         //默认令牌过期时间7天
         instance.add(Calendar.DATE, 7);
@@ -39,7 +39,7 @@ public class JWTUtils {
      * 验证token合法性 成功返回token
      */
     public static DecodedJWT verify(String token) {
-        if (StringUtils.isEmpty(token)) {
+        if (ObjectUtils.isEmpty(token)) {
             System.out.println("token 为空");
         }
         //获取登录用户真正的密码假如数据库查出来的是123456
@@ -49,7 +49,7 @@ public class JWTUtils {
     }
 
     public static void main(String[] args) {
-        Users u = new Users();
+        User u = new User();
         u.setId(3);
         u.setUserName("admin");
         u.setPassword("123");
