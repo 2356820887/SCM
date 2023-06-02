@@ -5,14 +5,18 @@ import com.chino.scm.pojo.SupplierStatement;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 @Mapper
 public interface SupplierStatementMapper extends BaseMapper<SupplierStatement> {
     @Select("select * from supplier_statement")
     SupplierStatement selectAll();
-    @Select("select * from supplier_statement where year = #{year}")
-    SupplierStatement selectByYear(int year);
-    @Select("select * from supplier_statement where quarter = #{quarter}")
-    SupplierStatement selectByQuarter(int year);
-    @Select("select * from supplier_statement where month = #{month}")
-    SupplierStatement selectByMonth(int month);
+
+    List<SupplierStatement> selectByYearOrSupplier(Integer year, String supplierName);
+
+    @Select("SELECT * FROM supplier_statement ORDER BY `quarter`")
+    List<SupplierStatement> orderByQuarter();
+
+    @Select("SELECT * FROM supplier_statement ORDER BY `month`")
+    List<SupplierStatement> orderByMonth();
 }

@@ -12,4 +12,15 @@
   <sql id="Base_Column_List">
       id, year ,quarter, `month`, supplier_name, payable_amount
   </sql>
+  <select id="selectByYearOrSupplier" parameterType="Integer" resultMap="BaseResultMap">
+      SELECT * FROM supplier_statement
+      <where>
+          <if test="year != null and year != ''">
+              and `year` = #{year}
+          </if>
+          <if test="supplierName != null and supplierName != ''">
+              and `supplier_name` = #{supplierName}
+          </if>
+      </where>
+  </select>
 </mapper>

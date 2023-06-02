@@ -7,6 +7,8 @@ import com.chino.scm.service.SupplierStatementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class SupplierStatementServiceImpl extends ServiceImpl<SupplierStatementMapper, SupplierStatement> implements SupplierStatementService {
     @Autowired
@@ -18,17 +20,17 @@ public class SupplierStatementServiceImpl extends ServiceImpl<SupplierStatementM
     }
 
     @Override
-    public SupplierStatement findByYear(int year) {
-        return supplierStatementMapper.selectByYear(year);
+    public List<SupplierStatement> findByYearOrSupplier(Integer year, String supplierName) {
+        return supplierStatementMapper.selectByYearOrSupplier(year, supplierName);
     }
 
     @Override
-    public SupplierStatement findByQuarter(int quarter) {
-        return supplierStatementMapper.selectByQuarter(quarter);
+    public List<SupplierStatement> orderByQuarter() {
+        return supplierStatementMapper.orderByQuarter();
     }
 
     @Override
-    public SupplierStatement findByMonth(int month) {
-        return supplierStatementMapper.selectByMonth(month);
+    public List<SupplierStatement> orderByMonth() {
+        return supplierStatementMapper.orderByMonth();
     }
 }

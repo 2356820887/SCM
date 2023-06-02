@@ -2,10 +2,15 @@ package com.chino.scm.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.chino.scm.pojo.CustomerStatement;
+import com.chino.scm.pojo.SupplierStatement;
+
+import java.util.List;
 
 public interface CustomerStatementService extends IService<CustomerStatement> {
     CustomerStatement findAll();
-    CustomerStatement findByYear(int year);
-    CustomerStatement findByQuarter(int quarter);
-    CustomerStatement findByMonth(int month);
+    List<CustomerStatement> findByYearOrCustomer(Integer year, String customerName);
+
+    List<CustomerStatement> orderByQuarter();
+
+    List<CustomerStatement> orderByMonth();
 }
