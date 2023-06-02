@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+
+        <property name="autoDelimitKeywords" value="true"/>
+        <!-- 字段加上引号 防止关键字冲突 -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <!--覆盖生成XML文件-->
+        <plugin type="org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin" />
+        <!-- 生成的实体类添加toString()方法 -->
+        <!--        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+
+        <!-- 不生成注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库配置 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3307/scm?serverTimezone=Asia/Shanghai"
+                        userId="root"
+                        password="root">
+        </jdbcConnection>
+
+        <!-- 实体类类生成的位置 -->
+        <javaModelGenerator targetProject="src/main/java"
+                            targetPackage="com.chino.scm.pojo"/>
+
+        <!-- mapper xml生成的位置 -->
+        <sqlMapGenerator targetProject="src/main/resources/"
+                         targetPackage="com.chino.scm.mapper"/>
+
+        <!-- Mapper 类生成的位置 -->
+        <javaClientGenerator targetProject="src/main/java"
+                             targetPackage="com.chino.scm.mapper"
+                             type="XMLMAPPER" />
+
+        <!-- tableName:数据库表名 domainObjectName:对应生成实体名称-->
+        <table tableName="arrival_detail" domainObjectName="ArrivalDetail"/>
+        <table tableName="customer_statement" domainObjectName="CustomerStatement"/>
+        <table tableName="material_info" domainObjectName="MaterialInfo"/>
+        <table tableName="material_type" domainObjectName="MaterialType"/>
+        <table tableName="purchase_arrival" domainObjectName="PurchaseArrival"/>
+        <table tableName="purchase_contract" domainObjectName="PurchaseContract"/>
+        <table tableName="purchase_contract_detail" domainObjectName="PurchaseContractDetail"/>
+        <table tableName="purchase_plan" domainObjectName="PurchasePlan"/>
+        <table tableName="purchase_plan_detail" domainObjectName="PurchasePlanDetail"/>
+        <table tableName="purchase_report" domainObjectName="PurchaseReport"/>
+        <table tableName="purchase_request" domainObjectName="PurchaseRequest"/>
+        <table tableName="purchase_request_detail" domainObjectName="PurchaseRequestDetail"/>
+        <table tableName="purchase_return" domainObjectName="PurchaseReturn"/>
+        <table tableName="purchase_return_detail" domainObjectName="PurchaseReturnDetail"/>
+        <table tableName="supplier" domainObjectName="Supplier"/>
+        <table tableName="supplier_statement" domainObjectName="SupplierStatement"/>
+        <table tableName="users" domainObjectName="Users"/>
+    </context>
+</generatorConfiguration>
