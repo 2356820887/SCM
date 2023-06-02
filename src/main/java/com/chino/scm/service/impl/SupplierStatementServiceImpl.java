@@ -14,6 +14,6 @@ public class SupplierStatementServiceImpl extends ServiceImpl<SupplierStatementM
 
     @Override
     public SupplierStatement findAll() {
-        return null;
+        return supplierStatementMapper.selectAll();
     }
 }
