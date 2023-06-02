@@ -23,4 +23,11 @@ public class SupplierStatementController {
         data.put("data", supplierStatementService.findAll());
         return new Result<>(200, data, "成功");
     }
+
+    @GetMapping("/find-year")
+    public Result<Map<String, Object>> findByYear(int year){
+        Map<String, Object> data = new HashMap<>();
+        data.put("data", supplierStatementService.findByYear(year));
+        return new Result<>(200, data, "成功");
+    }
 }
