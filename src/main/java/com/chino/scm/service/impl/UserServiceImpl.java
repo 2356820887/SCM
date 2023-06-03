@@ -30,6 +30,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         User dbuser = userMapper.selectByUsername(userName);
         if (dbuser != null) {
             try {
+                // 验证密码
                 if (verifyPassword(inputPassword, dbuser.getPassword())) {
                     return dbuser;
                 }else {

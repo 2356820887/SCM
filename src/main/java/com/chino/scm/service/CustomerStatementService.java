@@ -7,7 +7,7 @@ import com.chino.scm.pojo.SupplierStatement;
 import java.util.List;
 
 public interface CustomerStatementService extends IService<CustomerStatement> {
-    CustomerStatement findAll();
+    List<CustomerStatement> findAll();
     List<CustomerStatement> findByYearOrCustomer(Integer year, String customerName);
 
     List<CustomerStatement> orderByQuarter();

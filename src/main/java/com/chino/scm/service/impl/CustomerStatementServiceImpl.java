@@ -18,7 +18,7 @@ public class CustomerStatementServiceImpl extends ServiceImpl<CustomerStatementM
     private CustomerStatementMapper customerStatementMapper;
 
     @Override
-    public CustomerStatement findAll() {
+    public List<CustomerStatement> findAll() {
         return customerStatementMapper.selectAll();
     }
 

@@ -9,13 +9,13 @@ public class Supplier {
     private String abbreviation;
     private String address;
     private String phone;
-    private String contact_name;
-    private String contact_phone;
-    private String bank_name;
-    private String bank_account;
-    private Integer tax_id;
+    private String contactName;
+    private String contactPhone;
+    private String bankName;
+    private String bankAccount;
+    private Integer taxId;
     private String category;
     private String level;
-    private String application_status;
+    private String applicationStatus;
     private String status;
 }

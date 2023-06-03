@@ -6,7 +6,7 @@ import com.chino.scm.pojo.SupplierStatement;
 import java.util.List;
 
 public interface SupplierStatementService extends IService<SupplierStatement> {
-    SupplierStatement findAll();
+    List<SupplierStatement> findAll();
 
     List<SupplierStatement> findByYearOrSupplier(Integer year, String supplierName);
 

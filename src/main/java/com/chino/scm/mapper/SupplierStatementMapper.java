@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface SupplierStatementMapper extends BaseMapper<SupplierStatement> {
     @Select("select * from supplier_statement")
-    SupplierStatement selectAll();
+    List<SupplierStatement> selectAll();
 
     List<SupplierStatement> selectByYearOrSupplier(Integer year, String supplierName);
 

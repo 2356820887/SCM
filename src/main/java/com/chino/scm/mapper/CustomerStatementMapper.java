@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface CustomerStatementMapper extends BaseMapper<CustomerStatement> {
     @Select("select * from customer_statement")
-    CustomerStatement selectAll();
+    List<CustomerStatement> selectAll();
 
     List<CustomerStatement> selectByYearOrCustomer(Integer year, String customerName);
 

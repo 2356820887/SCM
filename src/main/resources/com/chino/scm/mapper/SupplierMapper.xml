@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.SupplierMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.Supplier">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="abbreviation" property="abbreviation" jdbcType="VARCHAR"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="contact_name" property="contactName" jdbcType="VARCHAR"/>
+        <result column="contact_phone" property="contactPhone" jdbcType="VARCHAR"/>
+        <result column="bank_name" property="bankName" jdbcType="VARCHAR"/>
+        <result column="bank_account" property="bankAccount" jdbcType="VARCHAR"/>
+        <result column="tax_id" property="taxId" jdbcType="INTEGER"/>
+        <result column="category" property="category" jdbcType="VARCHAR"/>
+        <result column="level" property="level" jdbcType="VARCHAR"/>
+        <result column="application_status" property="applicationStatus" jdbcType="VARCHAR"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, name, abbreviation, address, phone, contact_name,
+    contact_phone, bank_name, bank_account, tax_id, category,
+    level, application_status, status
+    </sql>
+    <select id="selectByNameOrContactName" parameterType="com.chino.scm.pojo.Supplier" resultMap="BaseResultMap">
+        SELECT * FROM supplier
+        <where>
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+            <if test="contactName != null and contactName != ''">
+                and contact_name like concat('%', #{contactName}, '%')
+            </if>
+        </where>
+    </select>
+    <update id="updateSupplier" parameterType="com.chino.scm.pojo.Supplier">
+        UPDATE `supplier`
+        SET `name`               = #{name},
+            `abbreviation`       = #{abbreviation},
+            `address`            = #{address},
+            `phone`              = #{phone},
+            `contact_name`       = #{contactName},
+            `contact_phone`      = #{contactPhone},
+            `bank_name`          = #{bankName},
+            `bank_account`       = #{bankAccount},
+            `tax_id`             = #{taxId},
+            `category`           = #{category},
+            `level`              = #{level},
+            `application_status` = #{applicationStatus},
+            `status`             = #{status}
+        WHERE `id` = #{id}
+    </update>
+    <insert id="insertSupplier" parameterType="com.chino.scm.pojo.Supplier">
+        INSERT INTO supplier(name, abbreviation, address, phone,
+                             contact_name, contact_phone, bank_name, bank_account,
+                             tax_id, category, level, application_status, status)
+        VALUES (#{name}, #{abbreviation}, #{address}, #{phone},
+                #{contactName}, #{contactPhone}, #{bankName}, #{bankAccount},
+                #{taxId}, #{category}, #{level}, #{applicationStatus}, #{status})
+    </insert>
+</mapper>

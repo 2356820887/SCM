@@ -19,6 +19,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    Map<String, Object> data = new HashMap<>();
+
     /**
      * 登录
      *
@@ -27,7 +29,6 @@ public class UserController {
      */
     @PostMapping("/login")
     public Result<Map<String, Object>> login(@RequestBody User user) {
-        Map<String, Object> data = new HashMap<>();
         if (user == null || user.getUserName().equals("") || user.getPassword().equals("")) {
             return new Result<>(400, "用户名或密码为空");
         }
