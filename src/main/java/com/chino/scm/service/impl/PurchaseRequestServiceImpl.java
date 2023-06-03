@@ -23,4 +23,9 @@ public class PurchaseRequestServiceImpl extends ServiceImpl<PurchaseRequestMappe
     public int updateOne(PurchaseRequest purchaseRequest) {
         return purchaseRequestMapper.updateOne(purchaseRequest);
     }
+
+    @Override
+    public int deleteOne(Integer id) {
+        return purchaseRequestMapper.deleteOne(id);
+    }
 }

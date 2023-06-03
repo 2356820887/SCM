@@ -11,4 +11,6 @@ public interface PurchaseRequestService extends IService<PurchaseRequest> {
 
     int updateOne(PurchaseRequest purchaseRequest);
 
+    int deleteOne(Integer id);
+
 }

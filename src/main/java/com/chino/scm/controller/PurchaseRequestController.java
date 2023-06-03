@@ -26,8 +26,13 @@ public class PurchaseRequestController {
 
     @PostMapping("/update")
     public Result<Map<String, Object>> updateOne(@RequestBody PurchaseRequest purchaseRequest) {
-        System.out.println(purchaseRequest);
         data.put("data", purchaseRequestService.updateOne(purchaseRequest));
+        return new Result<>(200, data, "成功");
+    }
+
+    @GetMapping("/delete")
+    public Result<Map<String, Object>> deleteOne(Integer id) {
+        data.put("data", purchaseRequestService.deleteOne(id));
         return new Result<>(200, data, "成功");
     }
 }
