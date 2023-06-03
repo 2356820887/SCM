@@ -9,4 +9,6 @@ public interface PurchaseRequestService extends IService<PurchaseRequest> {
 
     List<PurchaseRequest> findAll();
 
+    int updateOne(PurchaseRequest purchaseRequest);
+
 }

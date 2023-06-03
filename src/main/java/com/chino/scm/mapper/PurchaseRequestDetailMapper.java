@@ -12,4 +12,7 @@ public interface PurchaseRequestDetailMapper extends BaseMapper<PurchaseRequestD
 
     @Select("select * from purchase_request_detail")
     List<PurchaseRequestDetail> selectAll();
+
+    @Select("select * from purchase_request_detail where purchase_request_id = #{rid}")
+    List<PurchaseRequestDetail> selectByRequestId(Integer rid);
 }

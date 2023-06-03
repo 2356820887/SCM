@@ -5,8 +5,8 @@ import lombok.Data;
 import java.util.Date;
 @Data
 public class PurchaseRequest {
-    private int id;
-    private String requestNumber;
+    private Integer id;
+    private Integer requestNumber;
     private String requestType;
     private String planNumber;
     private String replenishmentNumber;

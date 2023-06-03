@@ -8,4 +8,6 @@ import java.util.List;
 public interface PurchaseRequestDetailService extends IService<PurchaseRequestDetail> {
 
     List<PurchaseRequestDetail> findAll();
+
+    List<PurchaseRequestDetail> findByRequestId(Integer rid);
 }

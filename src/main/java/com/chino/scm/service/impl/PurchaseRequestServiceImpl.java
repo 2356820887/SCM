@@ -18,4 +18,9 @@ public class PurchaseRequestServiceImpl extends ServiceImpl<PurchaseRequestMappe
     public List<PurchaseRequest> findAll() {
         return purchaseRequestMapper.selectAll();
     }
+
+    @Override
+    public int updateOne(PurchaseRequest purchaseRequest) {
+        return purchaseRequestMapper.updateOne(purchaseRequest);
+    }
 }

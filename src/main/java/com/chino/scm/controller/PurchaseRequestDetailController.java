@@ -23,4 +23,9 @@ public class PurchaseRequestDetailController {
         return new Result<>(200, data, "成功");
     }
 
+    @GetMapping("/find-request-id")
+    public Result<Map<String, Object>> findByRequestId(Integer rid) {
+        data.put("data", purchaseRequestDetailService.findByRequestId(rid));
+        return new Result<>(200, data, "成功");
+    }
 }

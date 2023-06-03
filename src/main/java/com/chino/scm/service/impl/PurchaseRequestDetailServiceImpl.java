@@ -17,4 +17,9 @@ public class PurchaseRequestDetailServiceImpl extends ServiceImpl<PurchaseReques
     public List<PurchaseRequestDetail> findAll() {
         return purchaseRequestDetailMapper.selectAll();
     }
+
+    @Override
+    public List<PurchaseRequestDetail> findByRequestId(Integer rid) {
+        return purchaseRequestDetailMapper.selectByRequestId(rid);
+    }
 }
