@@ -1,5 +1,6 @@
 package com.chino.scm.pojo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.util.Date;
@@ -18,4 +19,12 @@ public class PurchaseRequest {
     private String reviewStatus;
     private String reviewComment;
     private String remark;
+    @TableField(exist = false)
+    private Date startReqDate;
+    @TableField(exist = false)
+    private Date endReqDate;
+    @TableField(exist = false)
+    private Date startRevDate;
+    @TableField(exist = false)
+    private Date endRevDate;
 }

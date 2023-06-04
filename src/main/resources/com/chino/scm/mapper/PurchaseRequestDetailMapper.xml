@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchaseRequestDetailMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchaseRequestDetail">
+        <id column="id" property="id"/>
+        <result column="purchase_request_id" property="purchaseRequestId"/>
+        <result column="material" property="material"/>
+        <result column="model" property="model"/>
+        <result column="specification" property="specification"/>
+        <result column="unit" property="unit"/>
+        <result column="price" property="price"/>
+        <result column="purchase_quantity" property="purchaseQuantity"/>
+        <result column="demand_quantity" property="demandQuantity"/>
+        <result column="demand_date" property="demandDate"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+    <update id="updateMaterial" parameterType="com.chino.scm.pojo.PurchaseRequestDetail">
+        UPDATE purchase_request_detail
+        SET purchase_request_id = #{purchaseRequestId},
+            material            = #{material},
+            model               = #{model},
+            specification       = #{specification},
+            unit                = #{unit},
+            price               = #{price},
+            purchase_quantity   = #{purchaseQuantity},
+            demand_quantity     = #{demandQuantity},
+            demand_date         = #{demandDate},
+            remark              = #{remark}
+        WHERE id = #{id};
+    </update>
+    <select id="selectByConditions" parameterType="map" resultMap="BaseResultMap">
+        SELECT * FROM purchase_request
+        <where>
+            <if test="requestNumber != null and requestNumber != ''">
+                AND request_number LIKE CONCAT('%',#{requestNumber},'%')
+            </if>
+            <if test="requestType != null and requestType != ''">
+                AND request_type = #{requestType}
+            </if>
+            <if test="planNumber != null and planNumber != ''">
+                AND plan_number LIKE CONCAT('%',#{planNumber},'%')
+            </if>
+            <if test="requester != null and requester != ''">
+                AND requester = #{requester}
+            </if>
+            <if test="startDate != null">
+                AND request_date &gt;= #{startDate}
+            </if>
+            <if test="endDate != null">
+                AND request_date &lt;= #{endDate}
+            </if>
+            <if test="requestStatus != null and requestStatus != ''">
+                AND request_status = #{requestStatus}
+            </if>
+            <if test="reviewer != null and reviewer != ''">
+                AND reviewer = #{reviewer}
+            </if>
+            <if test="reviewStartDate != null">
+                AND review_date &gt;= #{reviewStartDate}
+            </if>
+            <if test="reviewEndDate != null">
+                AND review_date &lt;= #{reviewEndDate}
+            </if>
+            <if test="reviewStatus != null and reviewStatus != ''">
+                AND review_status = #{reviewStatus}
+            </if>
+        </where>
+        ORDER BY id DESC
+    </select>
+
+</mapper>

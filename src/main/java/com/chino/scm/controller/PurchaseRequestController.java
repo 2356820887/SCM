@@ -7,6 +7,8 @@ import com.chino.scm.service.PurchaseRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,4 +37,17 @@ public class PurchaseRequestController {
         data.put("data", purchaseRequestService.deleteOne(id));
         return new Result<>(200, data, "成功");
     }
+
+    @PostMapping("/search")
+    public Result<Map<String, Object>> search(@RequestBody PurchaseRequest purchaseRequest) {
+        data.put("data", purchaseRequestService.search(purchaseRequest));
+        return new Result<>(200, data, "成功");
+    }
+
+    @PostMapping("/add")
+    public Result<Map<String, Object>> addPurchaseRequest(@RequestBody PurchaseRequest purchaseRequest) {
+        data.put("data", purchaseRequestService.search(purchaseRequest));
+        return new Result<>(200, data, "成功");
+    }
+
 }

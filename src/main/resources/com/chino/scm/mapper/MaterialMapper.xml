@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.MaterialMapper">
+    <!-- 查询物料信息以及物料类型名称的resultMap -->
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.Material">
+        <id property="id" column="id"/>
+        <result property="materialCode" column="material_code"/>
+        <result property="materialName" column="material_name"/>
+        <result property="model" column="model"/>
+        <result property="specification" column="specification"/>
+        <result property="unit" column="unit"/>
+        <result property="unitPrice" column="unit_price"/>
+        <result property="type" column="type"/>
+        <result property="remark" column="remark"/>
+        <!-- 嵌套查询物料类型名称 -->
+        <association property="materialType" javaType="com.chino.scm.pojo.MaterialType">
+            <id property="id" column="type"/>
+            <result property="typeName" column="type_name"/>
+        </association>
+    </resultMap>
+    <select id="selectByType" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT mi.id,
+               mi.material_code,
+               mi.material_name,
+               mi.model,
+               mi.specification,
+               mi.unit,
+               mi.unit_price,
+               mt.type_name,
+               mi.remark
+        FROM material_info mi
+                 INNER JOIN material_type mt ON mi.type = mt.id
+        WHERE mi.type = #{id};
+    </select>
+</mapper>

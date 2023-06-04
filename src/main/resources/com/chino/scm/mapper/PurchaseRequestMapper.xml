@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchaseRequestMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchaseRequest">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="request_number" property="requestNumber" jdbcType="INTEGER"/>
+        <result column="request_type" property="requestType" jdbcType="VARCHAR"/>
+        <result column="plan_number" property="planNumber" jdbcType="VARCHAR"/>
+        <result column="replenishment_number" property="replenishmentNumber" jdbcType="VARCHAR"/>
+        <result column="requester" property="requester" jdbcType="VARCHAR"/>
+        <result column="request_date" property="requestDate" jdbcType="DATE"/>
+        <result column="request_status" property="requestStatus" jdbcType="VARCHAR"/>
+        <result column="reviewer" property="reviewer" jdbcType="VARCHAR"/>
+        <result column="review_date" property="reviewDate" jdbcType="DATE"/>
+        <result column="review_status" property="reviewStatus" jdbcType="VARCHAR"/>
+        <result column="review_comment" property="reviewComment" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, request_number, request_type, plan_number, replenishment_number,
+  requester, request_date, request_status, reviewer, review_date,
+  review_status, review_comment, remark
+    </sql>
+    <insert id="insertPurchaseRequest" parameterType="com.chino.scm.pojo.PurchaseRequest">
+        INSERT INTO purchase_request (request_number, request_type, plan_number, replenishment_number,
+                                      requester, request_date, request_status, reviewer, review_date,
+                                      review_status, review_comment, remark)
+        VALUES (#{requestNumber}, #{requestType}, #{planNumber}, #{replenishmentNumber},
+                #{requester}, #{requestDate}, #{requestStatus}, #{reviewer}, #{reviewDate},
+                #{reviewStatus}, #{reviewComment}, #{remark})
+    </insert>
+</mapper>

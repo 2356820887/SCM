@@ -2,10 +2,7 @@ package com.chino.scm.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.chino.scm.pojo.PurchaseRequest;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +17,6 @@ public interface PurchaseRequestMapper extends BaseMapper<PurchaseRequest> {
 
     @Delete("DELETE FROM `scm`.`purchase_request` WHERE `id` = #{id}")
     int deleteOne(Integer id);
+
+    Integer insertPurchaseRequest(PurchaseRequest purchaseRequest);
 }
