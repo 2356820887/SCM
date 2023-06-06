@@ -14,7 +14,7 @@
         <result column="demand_date" property="demandDate"/>
         <result column="remark" property="remark"/>
     </resultMap>
-    <update id="updateMaterial" parameterType="com.chino.scm.pojo.PurchaseRequestDetail">
+    <update id="updatePurchaseRequestDetail" parameterType="com.chino.scm.pojo.PurchaseRequestDetail">
         UPDATE purchase_request_detail
         SET purchase_request_id = #{purchaseRequestId},
             material            = #{material},

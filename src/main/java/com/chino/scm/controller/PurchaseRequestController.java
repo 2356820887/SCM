@@ -46,7 +46,7 @@ public class PurchaseRequestController {
 
     @PostMapping("/add")
     public Result<Map<String, Object>> addPurchaseRequest(@RequestBody PurchaseRequest purchaseRequest) {
-        data.put("data", purchaseRequestService.search(purchaseRequest));
+        data.put("data", purchaseRequestService.addPurchaseRequest(purchaseRequest));
         return new Result<>(200, data, "成功");
     }
 

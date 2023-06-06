@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchaseArrivalMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchaseArrival">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="arrival_number" property="arrivalNumber" jdbcType="VARCHAR"/>
+        <result column="contract_number" property="contractNumber" jdbcType="VARCHAR"/>
+        <result column="supplier_name" property="supplierName" jdbcType="VARCHAR"/>
+        <result column="contact_person" property="contactPerson" jdbcType="VARCHAR"/>
+        <result column="contact_phone" property="contactPhone" jdbcType="VARCHAR"/>
+        <result column="arrival_date" property="arrivalDate" jdbcType="TIMESTAMP"/>
+        <result column="status" property="status" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+    <update id="updateArrival" parameterType="com.chino.scm.pojo.PurchaseArrival">
+        update purchase_arrival
+        set arrival_number  = #{arrivalNumber},
+            contract_number = #{contractNumber},
+            supplier_name   = #{supplierName},
+            contact_person  = #{contactPerson},
+            contact_phone   = #{contactPhone},
+            arrival_date    = #{arrivalDate},
+            status          = #{status},
+            remark          = #{remark}
+        where id = #{id}
+    </update>
+    <insert id="insertArrival" useGeneratedKeys="true" keyProperty="id">
+        insert into purchase_arrival (arrival_number, contract_number, supplier_name, contact_person, contact_phone,
+                                      arrival_date, status, remark)
+        values (#{arrivalNumber}, #{contractNumber}, #{supplierName}, #{contactPerson}, #{contactPhone},
+                #{arrivalDate}, #{status}, #{remark})
+    </insert>
+
+</mapper>
