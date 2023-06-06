@@ -2,6 +2,7 @@ package com.chino.scm.pojo;
 
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.Date;
 @Data
 public class PurchaseArrival {
@@ -11,7 +12,7 @@ public class PurchaseArrival {
     private String supplierName;
     private String contactPerson;
     private String contactPhone;
-    private Date arrivalDate;
+    private LocalDate arrivalDate;
     private String status;
     private String remark;
 }

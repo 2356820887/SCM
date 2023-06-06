@@ -39,4 +39,10 @@ public class PurchaseArrivalController {
         data.put("data", purchaseArrivalService.deleteArrival(id));
         return new Result<>(200, data, "成功");
     }
+
+    @PostMapping("/search")
+    public Result<Map<String, Object>> search(@RequestBody PurchaseArrival purchaseArrival){
+        data.put("data", purchaseArrivalService.search(purchaseArrival));
+        return new Result<>(200, data, "成功");
+    }
 }

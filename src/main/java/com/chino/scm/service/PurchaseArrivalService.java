@@ -14,4 +14,6 @@ public interface PurchaseArrivalService extends IService<PurchaseArrival> {
     Integer addArrival(PurchaseArrival purchaseArrival);
 
     Integer deleteArrival(Integer id);
+
+    List<PurchaseArrival> search(PurchaseArrival purchaseArrival);
 }
