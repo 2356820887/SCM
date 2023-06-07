@@ -8,7 +8,7 @@
         <result column="supplier_name" property="supplierName" jdbcType="VARCHAR"/>
         <result column="contact_person" property="contactPerson" jdbcType="VARCHAR"/>
         <result column="contact_phone" property="contactPhone" jdbcType="VARCHAR"/>
-        <result column="arrival_date" property="arrivalDate" jdbcType="TIMESTAMP"/>
+        <result column="arrival_date" property="arrivalDate" jdbcType="DATE"/>
         <result column="status" property="status" jdbcType="VARCHAR"/>
         <result column="remark" property="remark" jdbcType="VARCHAR"/>
     </resultMap>

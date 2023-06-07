@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchaseReturnDetailMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchaseReturnDetail">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="returnId" column="return_id" jdbcType="INTEGER"/>
+        <result property="material" column="material" jdbcType="VARCHAR"/>
+        <result property="model" column="model" jdbcType="VARCHAR"/>
+        <result property="specification" column="specification" jdbcType="VARCHAR"/>
+        <result property="unit" column="unit" jdbcType="VARCHAR"/>
+        <result property="returnQuantity" column="return_quantity" jdbcType="INTEGER"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- 定义插入语句 -->
+    <insert id="addPurchaseReturnDetail" parameterType="com.chino.scm.pojo.PurchaseReturnDetail" useGeneratedKeys="true"
+            keyProperty="id">
+        INSERT INTO purchase_return_detail
+        (return_id, material, model, specification, unit, return_quantity, remark)
+        VALUES (#{returnId}, #{material}, #{model}, #{specification}, #{unit}, #{returnQuantity}, #{remark})
+    </insert>
+
+</mapper>

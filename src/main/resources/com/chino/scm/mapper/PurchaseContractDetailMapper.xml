@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchaseContractDetailMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchaseContractDetail">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="contract_id" jdbcType="INTEGER" property="contractId" />
+        <result column="material" jdbcType="VARCHAR" property="material" />
+        <result column="model" jdbcType="VARCHAR" property="model" />
+        <result column="specification" jdbcType="VARCHAR" property="specification" />
+        <result column="unit" jdbcType="VARCHAR" property="unit" />
+        <result column="unit_price" jdbcType="FLOAT" property="unitPrice" />
+        <result column="purchase_quantity" jdbcType="INTEGER" property="purchaseQuantity" />
+        <result column="amount" jdbcType="FLOAT" property="amount" />
+        <result column="demand_date" jdbcType="DATE" property="demandDate" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+    </resultMap>
+    <insert id="insertDetail" parameterType="com.chino.scm.pojo.PurchaseContractDetail">
+        INSERT INTO purchase_contract_detail (contract_id, material, model, specification, unit, unit_price, purchase_quantity, amount, demand_date, remark)
+        VALUES (#{contractId}, #{material}, #{model}, #{specification}, #{unit}, #{unitPrice}, #{purchaseQuantity}, #{amount}, #{demandDate}, #{remark})
+    </insert>
+</mapper>

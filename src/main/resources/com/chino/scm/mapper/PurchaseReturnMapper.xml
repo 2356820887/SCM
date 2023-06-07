@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchaseReturnMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchaseReturn">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="returnCode" column="return_code" jdbcType="VARCHAR"/>
+        <result property="arrivalId" column="arrival_id" jdbcType="INTEGER"/>
+        <result property="contractId" column="contract_id" jdbcType="INTEGER"/>
+        <result property="supplier" column="supplier" jdbcType="VARCHAR"/>
+        <result property="returnDate" column="return_date" jdbcType="DATE"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="DATE"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="addPurchaseReturn" parameterType="com.chino.scm.pojo.PurchaseReturn">
+        INSERT INTO purchase_return
+        (return_code, arrival_id, contract_id, supplier, return_date, creator, create_time, remark)
+        VALUES (#{returnCode}, #{arrivalId}, #{contractId}, #{supplier}, #{returnDate}, #{creator}, #{createTime},
+                #{remark})
+    </insert>
+    <update id="updatePurchaseReturn" parameterType="com.chino.scm.pojo.PurchaseReturn">
+        UPDATE purchase_return
+        SET return_code=#{returnCode},
+            arrival_id=#{arrivalId},
+            contract_id=#{contractId},
+            supplier=#{supplier},
+            return_date=#{returnDate},
+            creator=#{creator},
+            create_time=#{createTime},
+            remark=#{remark}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

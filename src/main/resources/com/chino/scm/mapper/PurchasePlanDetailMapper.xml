@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchasePlanDetailMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchasePlanDetail">
+        <id column="id" property="id"/>
+        <result column="purchase_plan_id" property="purchasePlanId"/>
+        <result column="material" property="material"/>
+        <result column="model" property="model"/>
+        <result column="specification" property="specification"/>
+        <result column="unit" property="unit"/>
+        <result column="purchase_quantity" property="purchaseQuantity"/>
+        <result column="demand_quantity" property="demandQuantity"/>
+        <result column="demand_date" property="demandDate" jdbcType="DATE"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+    <insert id="insertDetail" parameterType="com.chino.scm.pojo.PurchasePlanDetail">
+        insert into purchase_plan_detail (purchase_plan_id, material, model, specification,
+                                          unit, purchase_quantity, demand_quantity, demand_date, remark)
+        values (#{purchasePlanId}, #{material}, #{model}, #{specification},
+                #{unit}, #{purchaseQuantity}, #{demandQuantity}, #{demandDate}, #{remark})
+    </insert>
+</mapper>

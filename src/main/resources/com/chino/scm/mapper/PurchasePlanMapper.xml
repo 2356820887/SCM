@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchasePlanMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchasePlan">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="document_number" jdbcType="VARCHAR" property="documentNumber"/>
+        <result column="applicant" jdbcType="VARCHAR" property="applicant"/>
+        <result column="application_date" jdbcType="DATE" property="applicationDate"/>
+        <result column="application_status" jdbcType="VARCHAR" property="applicationStatus"/>
+        <result column="approved" jdbcType="VARCHAR" property="approved"/>
+        <result column="approval_date" jdbcType="DATE" property="approvalDate"/>
+        <result column="approval_status" jdbcType="VARCHAR" property="approvalStatus"/>
+        <result column="approval_comment" jdbcType="VARCHAR" property="approvalComment"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, document_number, applicant, application_date, application_status,
+    approved, approval_date, approval_status, approval_comment, remark
+    </sql>
+    <update id="updatePlan" parameterType="com.chino.scm.pojo.PurchasePlan">
+        UPDATE purchase_plan
+        SET document_number    = #{documentNumber},
+            applicant          = #{applicant},
+            application_date   = #{applicationDate},
+            application_status = #{applicationStatus},
+            approved           = #{approved},
+            approval_date      = #{approvalDate},
+            approval_status    = #{approvalStatus},
+            approval_comment   = #{approvalComment},
+            remark             = #{remark}
+        WHERE id = #{id}
+    </update>
+    <insert id="insertPlan" parameterType="com.chino.scm.pojo.PurchasePlan">
+        INSERT INTO purchase_plan (document_number, applicant, application_date, application_status, approved,
+                                   approval_date, approval_status, approval_comment, remark)
+        VALUES (#{documentNumber}, #{applicant}, #{applicationDate}, #{applicationStatus}, #{approved}, #{approvalDate},
+                #{approvalStatus}, #{approvalComment}, #{remark})
+    </insert>
+
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chino.scm.mapper.PurchaseContractMapper">
+    <resultMap id="BaseResultMap" type="com.chino.scm.pojo.PurchaseContract">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="contract_code" property="contractCode" jdbcType="VARCHAR"/>
+        <result column="application_id" property="applicationId" jdbcType="INTEGER"/>
+        <result column="supplier" property="supplier" jdbcType="VARCHAR"/>
+        <result column="contact_person" property="contactPerson" jdbcType="VARCHAR"/>
+        <result column="contract_amount" property="contractAmount" jdbcType="FLOAT"/>
+        <result column="delivery_method" property="deliveryMethod" jdbcType="VARCHAR"/>
+        <result column="sign_date" property="signDate" jdbcType="DATE"/>
+        <result column="applicant" property="applicant" jdbcType="VARCHAR"/>
+        <result column="application_time" property="applicationTime" jdbcType="DATE"/>
+        <result column="application_status" property="applicationStatus" jdbcType="VARCHAR"/>
+        <result column="reviewer" property="reviewer" jdbcType="VARCHAR"/>
+        <result column="review_time" property="reviewTime" jdbcType="DATE"/>
+        <result column="review_status" property="reviewStatus" jdbcType="VARCHAR"/>
+        <result column="review_comment" property="reviewComment" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!-- 插入新的采购合同记录 -->
+    <insert id="insertPurchaseContract" parameterType="com.chino.scm.pojo.PurchaseContract">
+        INSERT INTO purchase_contract (contract_code, application_id, supplier, contact_person, contract_amount,
+                                       delivery_method, sign_date, applicant, application_time, application_status,
+                                       reviewer, review_time, review_status, review_comment, remark)
+        VALUES (#{contractCode}, #{applicationId}, #{supplier}, #{contactPerson}, #{contractAmount}, #{deliveryMethod},
+                #{signDate}, #{applicant}, #{applicationTime}, #{applicationStatus}, #{reviewer}, #{reviewTime},
+                #{reviewStatus}, #{reviewComment}, #{remark})
+    </insert>
+
+    <!-- 更新指定的采购合同记录 -->
+    <update id="updatePurchaseContract" parameterType="com.chino.scm.pojo.PurchaseContract">
+        UPDATE purchase_contract
+        SET contract_code      = #{contractCode},
+            application_id     = #{applicationId},
+            supplier           = #{supplier},
+            contact_person     = #{contactPerson},
+            contract_amount    = #{contractAmount},
+            delivery_method    = #{deliveryMethod},
+            sign_date          = #{signDate},
+            applicant          = #{applicant},
+            application_time   = #{applicationTime},
+            application_status = #{applicationStatus},
+            reviewer           = #{reviewer},
+            review_time        = #{reviewTime},
+            review_status      = #{reviewStatus},
+            review_comment     = #{reviewComment},
+            remark             = #{remark}
+        WHERE id = #{id}
+    </update>
+
+</mapper>
