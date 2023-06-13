@@ -16,4 +16,6 @@ public interface ArrivalDetailMapper extends BaseMapper<ArrivalDetail> {
 
     @Delete("delete from arrival_detail where id = #{id}")
     Integer deleteById(Integer id);
+
+    int updateById(ArrivalDetail arrivalDetail);
 }

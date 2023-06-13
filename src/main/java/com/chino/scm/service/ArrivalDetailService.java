@@ -10,4 +10,6 @@ public interface ArrivalDetailService extends IService<ArrivalDetail> {
     List<ArrivalDetail> findById(Integer id);
 
     Integer deleteById(Integer id);
+
+    Integer updateArrivalDetail(ArrivalDetail arrivalDetail);
 }

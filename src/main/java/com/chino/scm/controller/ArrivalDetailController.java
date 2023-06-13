@@ -1,11 +1,10 @@
 package com.chino.scm.controller;
 
 import com.chino.scm.common.Result;
+import com.chino.scm.pojo.ArrivalDetail;
 import com.chino.scm.service.ArrivalDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +26,12 @@ public class ArrivalDetailController {
     @GetMapping("/delete-id")
     public Result<Map<String, Object>> deleteById(Integer id) {
         data.put("data", arrivalDetailService.deleteById(id));
+        return new Result<>(200, data, "操作成功");
+    }
+
+    @PostMapping("/update")
+    public Result<Map<String, Object>> updateArrivalDetail(@RequestBody ArrivalDetail arrivalDetail) {
+        data.put("data", arrivalDetailService.updateArrivalDetail(arrivalDetail));
         return new Result<>(200, data, "操作成功");
     }
 }
