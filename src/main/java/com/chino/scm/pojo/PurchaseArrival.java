@@ -14,4 +14,5 @@ public class PurchaseArrival {
     private LocalDate arrivalDate;
     private String status;
     private String remark;
+    private String batchNumber;
 }

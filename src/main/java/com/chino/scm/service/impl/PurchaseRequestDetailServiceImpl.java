@@ -36,6 +36,11 @@ public class PurchaseRequestDetailServiceImpl extends ServiceImpl<PurchaseReques
     }
 
     @Override
+    public Integer deletePurchaseRequestDetailByRid(Integer rid) {
+        return purchaseRequestDetailMapper.deletePurchaseRequestDetailByRid(rid);
+    }
+
+    @Override
     public List<PurchaseRequestDetail> findByConditions(Map<String,Object> data) {
         return purchaseRequestDetailMapper.selectByConditions(data);
     }

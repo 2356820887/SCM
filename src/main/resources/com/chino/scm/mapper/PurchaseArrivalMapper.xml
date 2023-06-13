@@ -21,14 +21,15 @@
             contact_phone   = #{contactPhone},
             arrival_date    = #{arrivalDate},
             status          = #{status},
-            remark          = #{remark}
+            remark          = #{remark},
+            batch_number    = #{batchNumber}
         where id = #{id}
     </update>
     <insert id="insertArrival" useGeneratedKeys="true" keyProperty="id">
         insert into purchase_arrival (arrival_number, contract_number, supplier_name, contact_person, contact_phone,
                                       arrival_date, status, remark)
         values (#{arrivalNumber}, #{contractNumber}, #{supplierName}, #{contactPerson}, #{contactPhone},
-                #{arrivalDate}, #{status}, #{remark})
+                #{arrivalDate}, #{status}, #{remark}),#{batchNumber}
     </insert>
 
 </mapper>

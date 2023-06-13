@@ -24,6 +24,7 @@ public class PurchaseContract {
     private String reviewStatus; // 审核状态
     private String reviewComment; // 审核意见
     private String remark; // 备注
+    private String contactWay; //联系电话
     @TableField(exist = false)
     private LocalDate startSignDate;
     @TableField(exist = false)

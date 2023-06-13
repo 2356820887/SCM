@@ -23,5 +23,8 @@ public interface PurchaseRequestDetailMapper extends BaseMapper<PurchaseRequestD
     @Delete("DELETE FROM `purchase_request_detail` WHERE `id` = #{id}")
     Integer deletePurchaseRequestDetail(Integer id);
 
+    @Delete("DELETE FROM `purchase_request_detail` WHERE `purchase_request_id` = #{rid}")
+    Integer deletePurchaseRequestDetailByRid(Integer rid);
+
     List<PurchaseRequestDetail> selectByConditions(Map<String, Object> data);
 }

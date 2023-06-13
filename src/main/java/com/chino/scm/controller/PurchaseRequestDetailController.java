@@ -35,8 +35,8 @@ public class PurchaseRequestDetailController {
     }
 
     @GetMapping("/delete")
-    public Result<Map<String, Object>> deletePurchaseRequestDetail(Integer id){
-        data.put("data", purchaseRequestDetailService.deletePurchaseRequestDetail(id));
+    public Result<Map<String, Object>> deletePurchaseRequestDetailByRid(Integer rid){
+        data.put("data", purchaseRequestDetailService.deletePurchaseRequestDetailByRid(rid));
         return new Result<>(200, data, "成功");
     }
 
