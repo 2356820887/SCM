@@ -22,4 +22,9 @@ public class ArrivalDetailServiceImpl extends ServiceImpl<ArrivalDetailMapper, A
     public Integer deleteById(Integer id) {
         return arrivalDetailMapper.deleteById(id);
     }
+
+    @Override
+    public Integer updateArrivalDetail(ArrivalDetail arrivalDetail) {
+        return arrivalDetailMapper.updateById(arrivalDetail);
+    }
 }
