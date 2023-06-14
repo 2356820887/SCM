@@ -1,12 +1,13 @@
 package com.chino.scm.service;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.chino.scm.pojo.PurchaseReturn;
 
 import java.util.List;
 
 public interface PurchaseReturnService extends IService<PurchaseReturn> {
-    List<PurchaseReturn> findAll();
+    IPage<PurchaseReturn> findAll(Integer pageNum, Integer pageSize);
 
     Integer updatePlan(PurchaseReturn purchaseReturn);
 

@@ -1,6 +1,8 @@
 package com.chino.scm.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.chino.scm.mapper.PurchaseArrivalMapper;
 import com.chino.scm.pojo.PurchaseArrival;
@@ -18,8 +20,11 @@ public class PurchaseArrivalServiceImpl extends ServiceImpl<PurchaseArrivalMappe
     private PurchaseArrivalMapper purchaseArrivalMapper;
 
     @Override
-    public List<PurchaseArrival> findAll() {
-        return purchaseArrivalMapper.selectAll();
+    public IPage<PurchaseArrival> findAll(Integer pageNum, Integer pageSize) {
+        IPage<PurchaseArrival> page = new Page<>(pageNum, pageSize);
+        LambdaQueryWrapper<PurchaseArrival> queryWrapper = new LambdaQueryWrapper<>();
+        purchaseArrivalMapper.selectPage(page, queryWrapper);
+        return page;
     }
 
     @Override

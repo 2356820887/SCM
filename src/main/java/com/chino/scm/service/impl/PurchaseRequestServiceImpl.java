@@ -1,6 +1,7 @@
 package com.chino.scm.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.chino.scm.mapper.PurchaseRequestMapper;
@@ -10,11 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 @Service
 public class PurchaseRequestServiceImpl extends ServiceImpl<PurchaseRequestMapper, PurchaseRequest> implements PurchaseRequestService {
@@ -22,8 +19,11 @@ public class PurchaseRequestServiceImpl extends ServiceImpl<PurchaseRequestMappe
     private PurchaseRequestMapper purchaseRequestMapper;
 
     @Override
-    public List<PurchaseRequest> findAll() {
-        return purchaseRequestMapper.selectAll();
+    public IPage<PurchaseRequest> findAll(Integer pageNum, Integer pageSize) {
+        IPage<PurchaseRequest> page = new Page<>(pageNum, pageSize);
+        LambdaQueryWrapper<PurchaseRequest> queryWrapper = new LambdaQueryWrapper<>();
+        purchaseRequestMapper.selectPage(page, queryWrapper);
+        return page;
     }
 
     @Override

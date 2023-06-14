@@ -16,9 +16,9 @@ public class PurchaseArrivalController {
     private PurchaseArrivalService purchaseArrivalService;
     Map<String, Object> data = new HashMap<>();
 
-    @GetMapping("/find-all")
-    public Result<Map<String, Object>> findAll() {
-        data.put("data", purchaseArrivalService.findAll());
+    @GetMapping("/find-all/{pageNum}/{pageSize}")
+    public Result<Map<String, Object>> findAll(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+        data.put("data", purchaseArrivalService.findAll(pageNum, pageSize));
         return new Result<>(200, data, "成功");
     }
 
@@ -41,7 +41,7 @@ public class PurchaseArrivalController {
     }
 
     @PostMapping("/search")
-    public Result<Map<String, Object>> search(@RequestBody PurchaseArrival purchaseArrival){
+    public Result<Map<String, Object>> search(@RequestBody PurchaseArrival purchaseArrival) {
         data.put("data", purchaseArrivalService.search(purchaseArrival));
         return new Result<>(200, data, "成功");
     }

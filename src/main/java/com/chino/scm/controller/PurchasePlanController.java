@@ -17,9 +17,9 @@ public class PurchasePlanController {
 
     Map<String, Object> data = new HashMap<>();
 
-    @GetMapping("find-all")
-    public Result<Map<String, Object>> findAll() {
-        data.put("data", purchasePlanService.findAll());
+    @GetMapping("find-all/{pageNum}/{pageSize}")
+    public Result<Map<String, Object>> findAll(@PathVariable Integer pageNum, @PathVariable Integer pageSize) {
+        data.put("data", purchasePlanService.findAll(pageNum, pageSize));
         return new Result<>(200, data, "成功");
     }
 
