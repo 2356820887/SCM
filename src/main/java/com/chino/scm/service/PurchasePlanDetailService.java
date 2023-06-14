@@ -9,6 +9,8 @@ public interface PurchasePlanDetailService extends IService<PurchasePlanDetail> 
 
     List<PurchasePlanDetail> findAll();
 
+    List<PurchasePlanDetail> findById(Integer id);
+
     Integer deletePlan(Integer id);
 
     Integer addPlan(PurchasePlanDetail purchasePlanDetail);

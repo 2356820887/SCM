@@ -22,6 +22,11 @@ public class PurchasePlanDetailServiceImpl extends ServiceImpl<PurchasePlanDetai
     }
 
     @Override
+    public List<PurchasePlanDetail> findById(Integer id) {
+        return purchasePlanDetailMapper.findById(id);
+    }
+
+    @Override
     public Integer deletePlan(Integer id) {
         return purchasePlanDetailMapper.deletePlan(id);
     }

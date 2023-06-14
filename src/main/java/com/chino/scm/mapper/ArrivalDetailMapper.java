@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface ArrivalDetailMapper extends BaseMapper<ArrivalDetail> {
 
-    @Select("select * from arrival_detail where id = #{id}")
+    @Select("select * from arrival_detail where purchase_arrival_id = #{id}")
     List<ArrivalDetail> findById(Integer id);
 
     @Delete("delete from arrival_detail where id = #{id}")

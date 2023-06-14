@@ -21,6 +21,12 @@ public class PurchasePlanDetailController {
         return new Result<>(200, data, "成功");
     }
 
+    @GetMapping("/find-id")
+    public Result<Map<String, Object>> findById(Integer id){
+        data.put("data", purchasePlanDetailService.findById(id));
+        return new Result<>(200, data, "成功");
+    }
+
     @GetMapping("/delete")
     public Result<Map<String, Object>> deletePlan(Integer id) {
         data.put("data", purchasePlanDetailService.deletePlan(id));
