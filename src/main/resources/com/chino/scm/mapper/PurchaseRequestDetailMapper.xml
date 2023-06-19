@@ -67,5 +67,29 @@
         </where>
         ORDER BY id DESC
     </select>
+    <insert id="addRequestDetail" parameterType="com.chino.scm.pojo.PurchaseRequestDetail">
+        insert into purchase_request_detail (id,
+                                             purchase_request_id,
+                                             material,
+                                             model,
+                                             specification,
+                                             unit,
+                                             price,
+                                             purchase_quantity,
+                                             demand_quantity,
+                                             demand_date,
+                                             remark)
+        values (#{id},
+                #{purchaseRequestId},
+                #{material},
+                #{model},
+                #{specification},
+                #{unit},
+                #{price},
+                #{purchaseQuantity},
+                #{demandQuantity},
+                #{demandDate},
+                #{remark})
+    </insert>
 
 </mapper>

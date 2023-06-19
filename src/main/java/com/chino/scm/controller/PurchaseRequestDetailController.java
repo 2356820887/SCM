@@ -45,4 +45,10 @@ public class PurchaseRequestDetailController {
         data.put("data", purchaseRequestDetailService.findByConditions(inputData));
         return new Result<>(200, data, "成功");
     }
+
+    @PostMapping("/add")
+    public Result<Map<String, Object>> add(@RequestBody PurchaseRequestDetail purchaseRequestDetail){
+        data.put("data", purchaseRequestDetailService.addRequestDetail(purchaseRequestDetail));
+        return new Result<>(200, data, "成功");
+    }
 }

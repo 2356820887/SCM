@@ -39,4 +39,10 @@ public class PurchaseContractController {
         data.put("data", purchaseContractService.search(purchaseContract));
         return new Result<>(200, data, "成功");
     }
+
+    @PostMapping("/update")
+    public Result<Map<String, Object>> update(@RequestBody PurchaseContract purchaseContract) {
+        data.put("data", purchaseContractService.updatePlan(purchaseContract));
+        return new Result<>(200, data, "成功");
+    }
 }

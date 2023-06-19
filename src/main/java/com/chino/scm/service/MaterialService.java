@@ -10,4 +10,5 @@ public interface MaterialService extends IService<Material> {
     List<Material> findAll();
 
     List<Material> findByType(Integer type);
+    Integer addMaterial(Material material);
 }

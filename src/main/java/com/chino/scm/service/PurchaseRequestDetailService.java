@@ -19,4 +19,6 @@ public interface PurchaseRequestDetailService extends IService<PurchaseRequestDe
     Integer deletePurchaseRequestDetailByRid(Integer rid);
 
     List<PurchaseRequestDetail> findByConditions(Map<String,Object> data);
+
+    Integer addRequestDetail(PurchaseRequestDetail purchaseRequestDetail);
 }

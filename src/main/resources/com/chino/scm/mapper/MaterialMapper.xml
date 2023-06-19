@@ -32,4 +32,25 @@
                  INNER JOIN material_type mt ON mi.type = mt.id
         WHERE mi.type = #{id};
     </select>
+    <insert id="addMaterial" parameterType="com.chino.scm.pojo.Material">
+        insert into material_info (id,
+                                   material_code,
+                                   material_name,
+                                   model,
+                                   specification,
+                                   unit,
+                                   unit_price,
+                                   type,
+                                   remark)
+        values (#{id},
+                #{materialCode},
+                #{materialName},
+                #{model},
+                #{specification},
+                #{unit},
+                #{unitPrice},
+                #{type},
+                #{remark})
+    </insert>
+
 </mapper>

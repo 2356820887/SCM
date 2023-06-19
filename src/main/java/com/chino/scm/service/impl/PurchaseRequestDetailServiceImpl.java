@@ -45,4 +45,9 @@ public class PurchaseRequestDetailServiceImpl extends ServiceImpl<PurchaseReques
         return purchaseRequestDetailMapper.selectByConditions(data);
     }
 
+    @Override
+    public Integer addRequestDetail(PurchaseRequestDetail purchaseRequestDetail) {
+        return purchaseRequestDetailMapper.addRequestDetail(purchaseRequestDetail);
+    }
+
 }

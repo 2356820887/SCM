@@ -21,4 +21,9 @@ public class MaterialServiceImpl extends ServiceImpl<MaterialMapper, Material> i
     public List<Material> findByType(Integer type) {
         return materialMapper.selectByType(type);
     }
+
+    @Override
+    public Integer addMaterial(Material material) {
+        return materialMapper.addMaterial(material);
+    }
 }

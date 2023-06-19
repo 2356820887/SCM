@@ -15,4 +15,6 @@ public interface MaterialMapper extends BaseMapper<Material> {
 
     List<Material> selectByType(Integer type);
 
+    Integer addMaterial(Material material);
+
 }

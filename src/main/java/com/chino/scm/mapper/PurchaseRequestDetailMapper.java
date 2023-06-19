@@ -27,4 +27,6 @@ public interface PurchaseRequestDetailMapper extends BaseMapper<PurchaseRequestD
     Integer deletePurchaseRequestDetailByRid(Integer rid);
 
     List<PurchaseRequestDetail> selectByConditions(Map<String, Object> data);
+
+    Integer addRequestDetail(PurchaseRequestDetail purchaseRequestDetail);
 }
