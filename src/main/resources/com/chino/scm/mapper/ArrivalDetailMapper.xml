@@ -8,4 +8,9 @@
             `remark`                  = #{remark}
         WHERE `id` = #{id};
     </update>
+    <insert id="insertArrivalDetail" parameterType="com.chino.scm.pojo.ArrivalDetail">
+        INSERT INTO `arrival_detail` (`id`, `purchase_arrival_id`, `production_batch_number`, `arrival_quantity`,
+                                      `remark`)
+        VALUES (#{id}, #{purchaseArrivalId}, #{productionBatchNumber}, #{arrivalQuantity}, #{remark})
+    </insert>
 </mapper>

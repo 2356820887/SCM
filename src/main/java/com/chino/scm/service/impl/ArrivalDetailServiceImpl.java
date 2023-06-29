@@ -27,4 +27,9 @@ public class ArrivalDetailServiceImpl extends ServiceImpl<ArrivalDetailMapper, A
     public Integer updateArrivalDetail(ArrivalDetail arrivalDetail) {
         return arrivalDetailMapper.updateById(arrivalDetail);
     }
+
+    @Override
+    public Integer addArrivalDetail(ArrivalDetail arrivalDetail) {
+        return arrivalDetailMapper.insertArrivalDetail(arrivalDetail);
+    }
 }

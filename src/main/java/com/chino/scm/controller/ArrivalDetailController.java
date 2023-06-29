@@ -34,4 +34,10 @@ public class ArrivalDetailController {
         data.put("data", arrivalDetailService.updateArrivalDetail(arrivalDetail));
         return new Result<>(200, data, "操作成功");
     }
+
+    @PostMapping("/add")
+    public Result<Map<String, Object>> addArrivalDetail(@RequestBody ArrivalDetail arrivalDetail) {
+        data.put("data", arrivalDetailService.addArrivalDetail(arrivalDetail));
+        return new Result<>(200, data, "操作成功");
+    }
 }

@@ -18,4 +18,6 @@ public interface ArrivalDetailMapper extends BaseMapper<ArrivalDetail> {
     Integer deleteById(Integer id);
 
     int updateById(ArrivalDetail arrivalDetail);
+
+    Integer insertArrivalDetail(ArrivalDetail arrivalDetail);
 }
