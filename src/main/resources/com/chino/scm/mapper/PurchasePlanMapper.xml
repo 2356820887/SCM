@@ -31,9 +31,10 @@
         WHERE id = #{id}
     </update>
     <insert id="insertPlan" parameterType="com.chino.scm.pojo.PurchasePlan">
-        INSERT INTO purchase_plan (document_number, applicant, application_date, application_status, approved,
+        INSERT INTO purchase_plan (id, document_number, applicant, application_date, application_status, approved,
                                    approval_date, approval_status, approval_comment, remark)
-        VALUES (#{documentNumber}, #{applicant}, #{applicationDate}, #{applicationStatus}, #{approved}, #{approvalDate},
+        VALUES (#{id}, #{documentNumber}, #{applicant}, #{applicationDate}, #{applicationStatus}, #{approved},
+                #{approvalDate},
                 #{approvalStatus}, #{approvalComment}, #{remark})
     </insert>
 

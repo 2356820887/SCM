@@ -1,5 +1,6 @@
 package com.chino.scm.controller;
 
+import com.chino.scm.common.PurchasePlanUtils;
 import com.chino.scm.common.Result;
 import com.chino.scm.pojo.PurchasePlan;
 import com.chino.scm.service.PurchasePlanService;
@@ -14,6 +15,7 @@ import java.util.Map;
 public class PurchasePlanController {
     @Autowired
     private PurchasePlanService purchasePlanService;
+
 
     Map<String, Object> data = new HashMap<>();
 
@@ -37,6 +39,8 @@ public class PurchasePlanController {
 
     @PostMapping("/add")
     public Result<Map<String, Object>> addPlan(@RequestBody PurchasePlan purchasePlan) {
+        PurchasePlanUtils.clearPurchasePlanNumber();
+        purchasePlan.setId(PurchasePlanUtils.generatePurchasePlanNumber());
         data.put("data", purchasePlanService.addPlan(purchasePlan));
         return new Result<>(200, data, "成功");
     }
